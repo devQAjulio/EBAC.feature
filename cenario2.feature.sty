@@ -1,0 +1,22 @@
+Funcionalidade: Autenticação de Usuário no EBAC-SHOP
+
+Cenário: Login com dados válidos
+    Dado que estou na página de login do EBAC-SHOP
+    E insiro o usuário "cliente_exemplo"
+    E insiro a senha "senha_valida"
+    Quando clico no botão "Entrar"
+    Então sou direcionado para a tela de checkout
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Funcionalidade: Autenticação de Usuário no EBAC-SHOP
+
+Cenário: Exibir mensagem de alerta para dados inválidos
+    Dado que estou na página de login do EBAC-SHOP
+    Quando insiro dados de login inválidos
+    | Usuário           | Senha           |
+    | cliente_exemplo   | senha_errada    |
+    | usuario_invalido  | senha_valida    |
+    |                   | senha_valida    |
+    | cliente_exemplo   |                 |
+    E clico no botão "Entrar"
+    Então devo ver a mensagem de alerta "Usuário ou senha inválidos"
+    ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

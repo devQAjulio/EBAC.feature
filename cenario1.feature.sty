@@ -1,0 +1,26 @@
+Funcionalidade: Configuração de Produto no EBAC-SHOP
+
+Cenário: Selecionar cor, tamanho e quantidade para adicionar ao carrinho
+    Dado que estou na página do produto no EBAC-SHOP
+    E vejo as opções de cor, tamanho e quantidade
+    Quando eu seleciono uma cor
+    E seleciono um tamanho
+    E seleciono a quantidade "2"
+    E clico em "Adicionar ao Carrinho"
+    Então o produto configurado deve ser adicionado ao carrinho
+    E a quantidade total no carrinho deve ser atualizada
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Funcionalidade: Configuração de Produto no EBAC-SHOP
+
+Cenário: Validação de seleção obrigatória e quantidade máxima de produtos
+    Dado que estou na página do produto no EBAC-SHOP
+    Quando eu seleciono uma cor
+    E seleciono um tamanho
+    E seleciono uma quantidade
+    | Quantidade |
+    | 5          |
+    | 10         |
+    | 12         |
+    Então devo ver a mensagem de erro "Quantidade máxima permitida é 10" ao tentar adicionar 12 unidades
+    E o botão de "Adicionar ao Carrinho" deve estar desabilitado para quantidade superior a 10
+    ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

@@ -1,0 +1,32 @@
+Funcionalidade: Cadastro de Usuário no EBAC-SHOP
+
+Cenário: Cadastro realizado com todos os dados obrigatórios
+    Dado que estou na página de cadastro do EBAC-SHOP
+    E preencho todos os campos obrigatórios marcados com asteriscos
+    | Campo             | Valor                  |
+    | Nome              | João Silva            |
+    | E-mail            | joao.silva@email.com  |
+    | Senha             | senha123              |
+    | Confirmação Senha | senha123              |
+    | Endereço          | Rua Exemplo, 123      |
+    | Telefone          | 999999999             |
+    Quando clico no botão "Concluir Cadastro"
+    Então meu cadastro deve ser concluído com sucesso
+    E devo ser direcionado para a tela de finalização de compra
+    ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    Funcionalidade: Cadastro de Usuário no EBAC-SHOP
+
+Cenário: Exibir mensagens de erro para campos inválidos ou ausentes
+    Dado que estou na página de cadastro do EBAC-SHOP
+    Quando tento preencher os campos obrigatórios com valores inválidos ou deixo-os em branco
+    | Campo             | Valor                | Mensagem de Erro                    |
+    | Nome              |                      | "Campo Nome é obrigatório"          |
+    | E-mail            | joao.silva@invalido | "Formato de e-mail inválido"        |
+    | Senha             |                      | "Campo Senha é obrigatório"         |
+    | Confirmação Senha | senha_errada        | "As senhas não coincidem"           |
+    | Endereço          |                      | "Campo Endereço é obrigatório"      |
+    | Telefone          | abcde123            | "Campo Telefone deve ser numérico"  |
+    Quando clico no botão "Concluir Cadastro"
+    Então devo ver as mensagens de erro correspondentes
+    E o cadastro não deve ser concluído
+    ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
